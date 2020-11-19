@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script type="text/javascript" src="./brython.js"></script>
 	<script type="text/javascript" src="./brython_stdlib.js"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,44 +18,5 @@
 		<button onclick="location.replace('multiplication-2.html')">Multiplication (1 digit x 2 digits)</button>
 		<button onclick="location.replace('multiplication-3.html')">Multiplication (2 digits x 2 digits)</button>
 	</div>
-
-<!-- 	<script type="text/python">
-		from browser import document, console
-		from random import randint
-
-		num_1 = 0
-		num_2 = 0
-
-		def generate_soal():
-			global num_1
-			global num_2
-
-			num_1 = randint(1, 99)
-			num_2 = randint(1, 99)
-
-			soal = f'{num_1} + {num_2}'
-			document['problem'].textContent = soal
-
-		def answer(e):
-			if e.keyCode == 13:
-				global num_1
-				global num_2
-
-				ans = int(document['answer-box'].value)
-
-				if ans == num_1 + num_2:
-					output = f'Correct answer! {num_1} + {num_2} = {num_1 + num_2}'
-					document['info'].textContent = output
-				else:
-					output = f'Wrong answer! {num_1} + {num_2} = {num_1 + num_2}'
-					document['info'].textContent = output
-
-				document['answer-box'].value = ''
-				generate_soal()
-
-		document['answer-box'].bind('keyup', answer)
-
-		generate_soal()
-	</script> -->
 </body>
 </html>
