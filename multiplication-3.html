@@ -8,11 +8,11 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
+	<title>Multiplication</title>
 </head>
-<body onload="brython()">
+<body onload="brython()" id="animate">
 	<div class="parent">
-		<h1 id="problem">1 + 1</h1>
+		<h1 id="problem"></h1>
 		<input type="text" id="answer-box">
 		<h2 id="info"></h2>
 		<button id="answer-button">Answer</button>
@@ -36,6 +36,22 @@
 			soal = f'{num_1} x {num_2}'
 			document['problem'].textContent = soal
 
+		def evaluate(e):
+			global num_1
+			global num_2
+
+			ans = int(document['answer-box'].value)
+
+			if ans == num_1 * num_2:
+				output = f'Correct answer! {num_1} x {num_2} = {num_1 * num_2}'
+				document['info'].textContent = output
+			else:
+				output = f'Wrong answer! {num_1} x {num_2} = {num_1 * num_2}'
+				document['info'].textContent = output
+
+			document['answer-box'].value = ''
+			generate_soal()
+
 		def answer(e):
 			if e.keyCode == 13:
 				global num_1
@@ -54,6 +70,7 @@
 				generate_soal()
 
 		document['answer-box'].bind('keyup', answer)
+		document['answer-button'].bind('click', evaluate)
 
 		generate_soal()
 	</script>
